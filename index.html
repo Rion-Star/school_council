@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Council 2025–26 | St. Francis School</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Roboto',sans-serif;
+  background:#f4f6f9;
+  color:#333;
+}
+
+/* CONTAINER */
+.container{
+  width:92%;
+  max-width:1200px;
+  margin:30px auto;
+  text-align:center;
+}
+h1{color:#7a0c0c}
+h2{font-weight:400}
+
+/* SECTION */
+.section{
+  margin:70px 0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:.6s ease;
+}
+.section.show{
+  opacity:1;
+  transform:none;
+}
+
+/* SECTION TITLE */
+.section-title{
+  font-size:26px;
+  font-weight:800;
+  padding:18px 40px;
+  margin-bottom:45px;
+  border-radius:50px;
+  position:relative;
+  overflow:hidden;
+}
+.section-title::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.7),transparent);
+  animation:shine 3s infinite;
+}
+@keyframes shine{
+  from{transform:translateX(-100%)}
+  to{transform:translateX(100%)}
+}
+
+/* HOUSE COLORS */
+.house-cabinet{background:linear-gradient(135deg,#ffd700,#fff3a0);box-shadow:0 0 20px gold}
+.house-paulus{background:linear-gradient(135deg,#fe0000,#ff9a9a);box-shadow:0 0 18px red}
+.house-clare{background:linear-gradient(135deg,#fff200,#fff9b0);box-shadow:0 0 18px #ffe600}
+.house-francis{background:linear-gradient(135deg,#92d050,#c9f2a0);box-shadow:0 0 18px #92d050}
+.house-joseph{background:linear-gradient(135deg,#00aeee,#8edcff);box-shadow:0 0 18px #00aeee}
+
+/* GRID – PERFECT CENTER ALIGNMENT */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, 170px);
+  gap:45px;
+  justify-content:center;
+  width:100%;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  padding:15px;
+  width:170px;
+  text-align:center;
+  border-radius:14px;
+  cursor:pointer;
+  transition:.35s ease;
+  box-shadow:0 8px 15px rgba(0,0,0,.12);
+}
+.card:hover{
+  transform:translateY(-12px) scale(1.05);
+  box-shadow:0 25px 45px rgba(0,0,0,.3);
+}
+.card img{
+  width:120px;
+  height:150px;
+  object-fit:cover;
+  border-radius:8px;
+  transition:.4s ease;
+}
+.card:hover img{transform:scale(1.08)}
+
+.name{font-weight:600;font-size:15px;margin-top:8px}
+.designation{color:#7a0c0c;font-size:14px}
+.class{font-size:13px;color:#555}
+
+/* BADGE */
+.badge{
+  background:gold;
+  padding:4px 10px;
+  font-size:11px;
+  border-radius:20px;
+  font-weight:700;
+  margin-bottom:6px;
+  display:inline-block;
+  box-shadow:0 0 10px gold;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+.modal-content{
+  background:linear-gradient(135deg,#7a0c0c,#000);
+  color:#fff;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  width:90%;
+  max-width:320px;
+  animation:pop .4s ease;
+}
+@keyframes pop{
+  from{transform:scale(.7);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+.modal img{
+  width:130px;
+  height:160px;
+  border-radius:8px;
+}
+
+/* FOOTER */
+footer{
+  background:#222;
+  color:#ccc;
+  padding:15px;
+  font-size:13px;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>St. Francis School, Greater Noida West</h1>
+<h2>Student Council (2025–2026)</h2>
+</div>
+
+<!-- SCHOOL CABINET -->
+<div class="section">
+<div class="section-title house-cabinet">⭐ School Cabinet</div>
+<div class="grid">
+
+<div class="card" onclick="openModal(this)">
+<span class="badge">Head Boy</span>
+<img src="images/PRANSHU CHATTERJEE.jpg">
+<div class="name">Pranshu Chatterjee</div>
+<div class="designation">Head Boy</div>
+<div class="class">IX – Diamond</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<span class="badge">Head Girl</span>
+<img src="images/VAISHNAVI SINGH.jpg">
+<div class="name">Vaishnavi Singh</div>
+<div class="designation">Head Girl</div>
+<div class="class">VIII – Diamond</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/ATHARVA JAISWAL.jpg">
+<div class="name">Atharva Jaiswal</div>
+<div class="designation">Discipline Leader</div>
+<div class="class">IX – Diamond</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/NAYSHA SINGH.jpg">
+<div class="name">Naysha Singh</div>
+<div class="designation">Discipline Leader</div>
+<div class="class">VIII – Diamond</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/AYAAN RAI.jpg">
+<div class="name">Ayaan Rai</div>
+<div class="designation">Sports Captain</div>
+<div class="class">VIII – Diamond</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/VARNIKA.jpg">
+<div class="name">Varnika</div>
+<div class="designation">Sports Captain</div>
+<div class="class">VIII – Diamond</div>
+</div>
+
+</div>
+</div>
+
+<!-- BRO. PAULUS HOUSE -->
+<div class="section">
+<div class="section-title house-paulus">🏠 Bro. Paulus House</div>
+<div class="grid">
+
+<div class="card" onclick="openModal(this)">
+<img src="images/SHIVANSH TRIPATHI.jpg">
+<div class="name">Shivansh Tripathi</div>
+<div class="designation">House Captain</div>
+<div class="class">IX – Diamond</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/AMULYA MANDHYAN.jpg">
+<div class="name">Amulya Mandhyan</div>
+<div class="designation">Vice Captain</div>
+<div class="class">VIII – Ruby</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/AASHI SHARMA.jpg">
+<div class="name">Aashi Sharma</div>
+<div class="designation">Junior House Captain</div>
+<div class="class">V – Ruby</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/ARYAHI DHANKAR.jpg">
+<div class="name">Aryahi Dhankar</div>
+<div class="designation">Junior Vice Captain</div>
+<div class="class">V – Ruby</div>
+</div>
+
+</div>
+</div>
+
+<!-- ST. CLARE HOUSE -->
+<div class="section">
+<div class="section-title house-clare">🏠 St. Clare House</div>
+<div class="grid">
+
+<div class="card" onclick="openModal(this)">
+<img src="images/RISHEEK SRIVASTAVA.jpg">
+<div class="name">Risheek Srivastava</div>
+<div class="designation">House Captain</div>
+<div class="class">IX – Diamond</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/ARADHYA PALIWAL.jpg">
+<div class="name">Aradhya Paliwal</div>
+<div class="designation">Vice Captain</div>
+<div class="class">VIII – Diamond</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/VAISHNAVI GAUTAM.jpg">
+<div class="name">Vaishnavi Gautam</div>
+<div class="designation">Junior House Captain</div>
+<div class="class">V – Pearl</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/ANUKRITI CHATURVEDI.jpg">
+<div class="name">Anukriti Chaturvedi</div>
+<div class="designation">Junior Vice Captain</div>
+<div class="class">IV – Ruby</div>
+</div>
+
+</div>
+</div>
+
+<!-- ST. FRANCIS HOUSE -->
+<div class="section">
+<div class="section-title house-francis">🏠 St. Francis House</div>
+<div class="grid">
+
+<div class="card" onclick="openModal(this)">
+<img src="images/VIDUSHI GAUR.jpg">
+<div class="name">Vidushi Gaur</div>
+<div class="designation">House Captain</div>
+<div class="class">VIII – Diamond</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/SANVI TIWARI.jpg">
+<div class="name">Sanvi Tiwari</div>
+<div class="designation">Vice Captain</div>
+<div class="class">VIII – Ruby</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/NAHID AHMED.jpg">
+<div class="name">Nahid Ahmed</div>
+<div class="designation">Junior House Captain</div>
+<div class="class">V – Diamond</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/YASHIKA SINGH.jpg">
+<div class="name">Yashika Singh</div>
+<div class="designation">Junior Vice Captain</div>
+<div class="class">IV – Ruby</div>
+</div>
+
+</div>
+</div>
+
+<!-- ST. JOSEPH HOUSE -->
+<div class="section">
+<div class="section-title house-joseph">🏠 St. Joseph House</div>
+<div class="grid">
+
+<div class="card" onclick="openModal(this)">
+<img src="images/TRISHA MAHESHWARI.jpg">
+<div class="name">Trisha Maheshwari</div>
+<div class="designation">House Captain</div>
+<div class="class">VIII – Diamond</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/VANYA TYAGI.jpg">
+<div class="name">Vanya Tyagi</div>
+<div class="designation">Vice Captain</div>
+<div class="class">VII – Diamond</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/AADYA SHRIVASTAVA.jpg">
+<div class="name">Aadya Shrivastava</div>
+<div class="designation">Junior House Captain</div>
+<div class="class">V – Ruby</div>
+</div>
+
+<div class="card" onclick="openModal(this)">
+<img src="images/AADYA SINHA.jpg">
+<div class="name">Aadya Sinha</div>
+<div class="designation">Junior Vice Captain</div>
+<div class="class">IV – Pearl</div>
+</div>
+
+</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="profileModal" onclick="closeModal()">
+<div class="modal-content" onclick="event.stopPropagation()">
+<img id="modalImg">
+<h3 id="modalName"></h3>
+<p id="modalRole"></p>
+<p id="modalClass"></p>
+</div>
+</div>
+
+<footer>
+© 2025–26 St. Francis School, Greater Noida West
+</footer>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add("show");
+  });
+});
+document.querySelectorAll(".section").forEach(s=>observer.observe(s));
+
+function openModal(card){
+  modalImg.src=card.querySelector("img").src;
+  modalName.innerText=card.querySelector(".name").innerText;
+  modalRole.innerText=card.querySelector(".designation").innerText;
+  modalClass.innerText=card.querySelector(".class").innerText;
+  profileModal.style.display="flex";
+}
+function closeModal(){
+  profileModal.style.display="none";
+}
+</script>
+
+</body>
+</html>
